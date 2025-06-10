@@ -22,6 +22,15 @@ set(groot, 'DefaultAxesLineWidth', 2);
 acc = 0;
 R = 8.3144598;
 
+% Preallocate arrays using the final number of Monte Carlo sweeps
+final_nstep = MCS + nconfig / N;
+totalEnergyArr(final_nstep) = 0;
+grainBoundaryEnergyArr(final_nstep) = 0;
+strainEnergyArr(final_nstep) = 0;
+pacc(final_nstep) = 0;
+prex(final_nstep) = 0;
+time(final_nstep) = 0;
+
 if MCS == 0
     imagesc(ax1, s);
 
