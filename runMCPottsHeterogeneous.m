@@ -42,11 +42,6 @@ for k = 1:nconfig
     sij = sij + ceil((q - 1) * rand);
     sij = sij - q * floor((sij - 1) / q);
 
-    % Prevent changing to spin = 1 if strain energy is present
-    while strain_energy_map(i, j) > 0 && sij == 1
-        sij = sij + ceil((q - 1) * rand);
-        sij = sij - q * floor((sij - 1) / q);
-    end
 
     sign = calculateEnergy(sij, s, n, i, j);
     sigo = calculateEnergy(sijo, s, n, i, j);

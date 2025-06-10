@@ -54,10 +54,6 @@ for k = 1:nconfig
     sij = sij + ceil((q - 1) * rand);
     sij = sij - q * floor((sij - 1) / q);
 
-    while strain_energy && sij == 1
-        sij = sij + ceil((q - 1) * rand);
-        sij = sij - q * floor((sij - 1) / q);
-    end
 
     sign = calculateEnergy(sij, s, n, i, j);
     sigo = calculateEnergy(sijo, s, n, i, j);
