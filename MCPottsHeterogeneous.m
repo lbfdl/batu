@@ -2,7 +2,13 @@ function [totalEnergyArr, grainBoundaryEnergyArr, strainEnergyArr, s, time, pacc
     % Monte Carlo Potts model with heterogeneous strain energy
     % This function runs a simulation with heterogeneous strain energy (Es = 2, 4, or 6)
     
-    rng('shuffle');
+
+    % Initialize the random number generator only once
+    if exist('seed','var') && ~isempty(seed)
+        rng(seed);
+    else
+        rng('shuffle');
+    end
     
     % Load the initial state from the previous run
     [s, MCS, n, q, pacc, prex, time, strain_energy, temperature, E0, totalEnergyArr, grainBoundaryEnergyArr, strainEnergyArr, total_en, grain_boundary_en, strain_en] = loadMCPotts(MCS_start, 0, temperature, E0);
